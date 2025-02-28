@@ -25,3 +25,19 @@ def count_total_employees(company_dict):
 
 total_employees = count_total_employees(company_employees)
 print("\nTotal number of employees in the company:", total_employees)
+
+def transform_employee_age_dict(input_dict):
+    output_dict = {}
+    # Iterate over departments and their employees
+    for department, employees in input_dict.items():
+        for name, info in employees.items():
+            age = info["age"]
+            if age not in output_dict:
+                output_dict[age] = []
+            output_dict[age].append(name)
+    return output_dict
+
+transformed_dict = transform_employee_age_dict(company_employees)
+
+print("\nTransformed dictionary (employees grouped by age):")
+print(transformed_dict)
